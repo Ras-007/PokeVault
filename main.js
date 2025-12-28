@@ -49,6 +49,9 @@ topSeasons.forEach((season, index) => {
 
 
 async function fetchPokemonData() {
+    const searchInput = document.getElementById('pokemon');
+    const name = searchInput.value.toLowerCase().trim();
+    const spinner = document.getElementById('spinner'); // Make sure ID matches your HTML
 
     if (!name) {
         alert("Please enter a Pokemon name!"); // <--- Your message here
@@ -121,6 +124,7 @@ function closePokedex() {
     // document.getElementById('pokemon').value = "";
     // document.getElementById('pokemonSprite').style.display = "none";
 }
+
 
 
 
