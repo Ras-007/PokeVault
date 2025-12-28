@@ -63,7 +63,8 @@ async function fetchPokemonData() {
         const spinner = document.getElementById("loading-spinner");
         spinner.style.display = "block";
         if (!response.ok) {
-        throw new Error("Pokemon not found! Please check the name and try again.");
+            spinner.style.display = "none";
+        
         alert("Pokemon not found! Please check the name and try again.");
             
     }
@@ -125,6 +126,7 @@ function closePokedex() {
     // document.getElementById('pokemon').value = "";
     // document.getElementById('pokemonSprite').style.display = "none";
 }
+
 
 
 
