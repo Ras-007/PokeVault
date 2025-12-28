@@ -1,0 +1,358 @@
+body {
+    background-color: #dc0a2d; /* Classic Pokedex Red */
+    background-image: radial-gradient(#ff5555 15%, transparent 16%), radial-gradient(#ff5555 15%, transparent 16%);
+    background-size: 20px 20px;
+    background-position: 0 0, 10px 10px;
+    
+    /* Keep your existing alignment */
+    text-align: center;
+    font-family: 'Courier New', Courier, monospace; /* Digital font look */
+}
+
+/* 1. The Spinner Look */
+.spinner {
+    display: none; /* Hidden until we click search */
+    width: 50px;
+    height: 50px;
+    margin: 20px auto; /* Centers it */
+    border: 5px solid #f3f3f3; /* Light grey circle */
+    border-top: 5px solid #ef5350; /* Red "spinner" part */
+    border-radius: 50%; /* Makes it round */
+    animation: spin 1s linear infinite; /* Tells it to move */
+}
+
+/* 2. The Animation Logic */
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Container for the stats */
+.stats-container {
+    margin-top: 20px;
+    text-align: left; /* Aligns text to the left for better reading */
+    display: inline-block; /* Keeps it contained inside the glass panel */
+    width: 100%; /* Fills the width of the glass panel */
+}
+
+/* Individual Stat Rows */
+.stat-item {
+    background-color: rgba(255, 255, 255, 0.5); /* Slightly lighter background */
+    margin: 5px 0;
+    padding: 8px;
+    border-radius: 5px;
+    font-size: 1rem;
+    text-transform: capitalize; /* Makes "hp" look like "Hp" (or handled in JS) */
+    display: flex;
+    justify-content: space-between; /* Pushes Name to left, Number to right */
+}
+
+/* The container for all stats */
+#pokemonStats {
+    width: 100%;
+    margin-top: 20px;
+    padding: 10px;
+    background: rgba(255, 255, 255, 0.5); /* Semi-transparent white box */
+    border-radius: 15px;
+}
+
+/* The individual stat rows */
+.stat-item {
+    display: flex;              /* Puts Name on left, Number on right */
+    justify-content: space-between;
+    padding: 8px 15px;          /* Adds breathing room inside */
+    margin-bottom: 5px;         /* Space between rows */
+    background-color: white;    /* White background for the strip */
+    border-radius: 8px;         /* Rounded corners */
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1); /* Subtle shadow */
+    font-family: monospace;     /* Tech-looking font */
+    font-size: 1.1rem;
+}
+
+/* Container to center the badges */
+.types-container {
+    margin: 10px 0;
+    display: flex;
+    justify-content: center; /* Center them horizontally */
+    gap: 10px; /* Space between two types */
+}
+
+/* The Base Badge Look */
+.type-badge {
+    padding: 5px 15px;
+    border-radius: 20px; /* Pill shape */
+    color: white;
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size: 0.9rem;
+    background-color: #777; /* Default Gray */
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
+/* --- OPTIONAL: Specific Colors for Types --- */
+/* The JS adds the type name as a class, so these will work automatically */
+.fire { background-color: #F08030; }
+.water { background-color: #6890F0; }
+.grass { background-color: #78C850; }
+.electric { background-color: #F8D030; color: black; } /* Black text for yellow bg */
+.poison { background-color: #A040A0; }
+.psychic { background-color: #F85888; }
+
+/* 3. SEASONS CONTAINER (Horizontal Row) */
+.season-container {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap; /* Wraps to next line on small screens */
+    margin-bottom: 50px;
+}
+
+/* 4. THE SEASON CARD */
+.season-card {
+    background: white;
+    width: 180px;
+    padding: 10px;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    
+    /* ANIMATION SETUP */
+    transition: transform 0.3s ease; /* Smooth hover */
+    animation: popIn 0.8s ease-out forwards; /* Load animation */
+    opacity: 0; /* Hidden before animation starts */
+}
+
+/* 5. HOVER EFFECT (The "Basic Animation") */
+.season-card:hover {
+    transform: translateY(-10px) scale(1.05); /* Moves up and grows slightly */
+    cursor: pointer;
+}
+
+/* 6. IMAGE STYLING */
+.season-img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover; /* Ensures poster fills box nicely */
+    border-radius: 10px;
+    margin-bottom: 10px;
+}
+
+/* 7. DIVIDER LINE */
+.divider {
+    border: 0;
+    height: 2px;
+    background: rgba(255,255,255,0.3);
+    margin: 40px auto;
+    width: 80%;
+}
+
+/* 8. KEYFRAME ANIMATION (The "Pop In") */
+@keyframes popIn {
+    0% {
+        opacity: 0;
+        transform: translateY(50px); /* Starts lower */
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0); /* Ends in place */
+    }
+}
+
+/* --- 1. THE FLOATING BUTTON (FAB) --- */
+.fab-btn {
+    position: bottom middle ; /* Locks it to the screen */
+    bottom: 30px;    /* 30px from bottom */
+    right: 30px;     /* 30px from right */
+    
+    background-color: #ffcb05; /* Pokemon Yellow */
+    color: #3b4cca;            /* Pokemon Blue */
+    border: 4px solid #3b4cca;
+    
+    padding: 15px 25px;
+    border-radius: 50px; /* Pill shape */
+    font-size: 1.2rem;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    
+    /* Animation */
+    transition: transform 0.2s;
+    z-index: 100; /* Ensures it sits on top of seasons */
+}
+
+.fab-btn:hover {
+    transform: scale(1.1); /* Grows slightly */
+}
+
+/* --- 2. THE POKEDEX OVERLAY (Full Screen) --- */
+.pokedex-overlay {
+    display: none; /* Hidden initially */
+    
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    
+    background-color: rgba(220, 10, 45, 0.95); /* Deep Red (Pokedex Color) */
+    backdrop-filter: blur(5px); /* Blurs the background seasons */
+    
+    z-index: 200; /* Sits on top of EVERYTHING */
+    
+    /* Centering content */
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start; /* Aligns to top so we can scroll if needed */
+    padding-top: 50px;
+    overflow-y: auto; /* Allows scrolling if stats get too long */
+}
+
+/* --- 3. THE BACK BUTTON --- */
+.back-btn {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    
+    background: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 20px;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
+.back-btn:hover {
+    background: #f0f0f0;
+}
+
+/* 1. The Full Screen Blur Background */
+.overlay {
+    display: none; /* Hidden by default */
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    
+    /* THE BLUR EFFECT */
+    background: rgba(0, 0, 0, 0.6); /* Dark see-through */
+    backdrop-filter: blur(8px);      /* Blurs the background! */
+    
+    /* Center the box */
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+/* 2. The White Box inside */
+.popup-box {
+    background: white;
+    padding: 30px;
+    width: 300px;
+    border-radius: 15px;
+    text-align: center;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+    animation: popIn 0.3s ease; /* Reuse your popIn animation! */
+}
+
+/* --- FOOTER STYLES --- */
+.main-footer {
+    text-align: center;
+    padding: 40px 20px;
+    margin-top: 50px;
+    color: white;
+    background: rgba(0, 0, 0, 0.2); /* Slight dark background */
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.main-footer p {
+    margin-bottom: 20px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+/* The Icon Container */
+.social-links {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+/* The Individual Buttons */
+.social-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 50px;
+    height: 50px;
+    background: white;
+    border-radius: 50%; /* Makes them circles */
+    color: #333;
+    transition: transform 0.2s, background 0.2s;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+}
+
+.social-btn svg {
+    width: 24px;
+    height: 24px;
+}
+
+/* --- HOVER EFFECTS --- */
+.social-btn:hover {
+    transform: translateY(-5px); /* Pops up slightly */
+    color: white; /* Icon turns white */
+}
+
+/* Specific colors for each platform */
+.social-btn.github:hover { background-color: #333; }
+.social-btn.linkedin:hover { background-color: #0077b5; }
+.social-btn.email:hover { background-color: #ea4335; }
+
+.top-bar {
+    position: fixed; /* Locks it to the top so it stays when scrolling */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 60px; /* Height of the strip */
+    
+    background-color: #3b4cca; /* Pokemon Blue */
+    border-bottom: 4px solid #ffcb05; /* A thin Yellow line at the bottom for style */
+    
+    display: flex;
+    align-items: center; /* Vertically centers the logo */
+    padding-left: 20px; /* Space from the left edge */
+    
+    z-index: 100; /* Ensures it sits above everything else */
+    box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+}
+
+.site-logo {
+    position: absolute; /* Locks it to the corner */
+    top: 20px;
+    left: 20px;
+    
+    font-size: 1.5rem;
+    font-weight: 900; /* Extra Bold */
+    font-family: sans-serif; /* Or 'Arial Black' */
+    letter-spacing: 2px;
+    
+    /* Pokemon Color Scheme */
+    color: #ffcb05; /* Yellow */
+    text-shadow: 
+        2px 2px 0px #3b4cca, /* Blue Shadow */
+        -1px -1px 0 #3b4cca,  
+        1px -1px 0 #3b4cca,
+        -1px 1px 0 #3b4cca,
+        1px 1px 0 #3b4cca; /* Complete Blue Outline */
+    
+    z-index: 10; /* Ensures it sits on top of background */
+    cursor: default; /* Doesn't look clickable */
+}
+
+/* Mobile Tweak: Make it smaller on phones so it doesn't hit the title */
+@media (max-width: 600px) {
+    .site-logo {
+        font-size: 1rem;
+        top: 15px;
+        left: 15px;
+    }
+}

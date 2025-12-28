@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PokeVault</title>
+    <link rel="icon" type="image/png" href="https://cdn-icons-png.flaticon.com/512/188/188987.png">
+    <link rel="stylesheet" href="design.css">
+</head>
+
+<body>
+ <div id="home-view" style="text-align: center;">
+    <header class="top-bar">
+        <div class="site-logo">POKEVAULT</div>
+    </header>
+        <h1 class="section-title">✨ Top 5 Pokemon Seasons</h1>
+        
+        <div id="season-grid" class="season-container">
+            </div>
+
+        <button class="fab-btn" onclick="openPokedex()">
+            <span style="font-size: 1.5rem;">📱</span> Open Pokedex
+        </button>
+    </div>
+
+<footer class="main-footer">
+    <p>Connect with the Trainer</p>
+    
+    <div class="social-links">
+        
+        <a href="https://github.com/Ras-007" target="_blank" class="social-btn github">
+            <i class="fab fa-github"></i>
+            <img src="images/github.png" alt="GitHub" style="width:24px; height:24px;">
+        </a>
+
+        <a href="https://www.linkedin.com/in/rayyan-shaik-5847b8386/" target="_blank" class="social-btn linkedin">
+            <i class="fab fa-linkedin"></i>
+            <img src="images/link.png" alt="LinkedIn" style="width:24px; height:24px;">
+        </a>
+
+        <a href="mailto:rayyanareef7@gmail.com" class="social-btn email">
+            <i class="fas fa-envelope"></i>
+            <img src="images/email.png" alt="Email" style="width:24px; height:24px;">
+        </a>
+
+    </div>
+</footer>
+    <div id="pokedex-view" class="pokedex-overlay">
+        
+        <button class="back-btn" onclick="closePokedex()">
+            &larr; Back Home
+        </button>
+
+    <input type="text" id="pokemon" placeholder="Name of the Pokemon">
+    <button onclick="fetchPokemonData()">Fetch Pokemon</button><br>
+<div id="loading-spinner" class="spinner"></div>
+<div id="pokemonStats"></div>
+<div id="pokemonTypes" class="types-container"></div>
+
+    
+    <style>
+    /* 1. CENTER ALIGNMENT */
+    body {
+        text-align: center;      /* Centers text, inputs, and images horizontally */
+        margin-top: 100px;       /* Pushes everything down so it's not stuck at the top */
+         /* Optional: Nice background color */
+        font-family: sans-serif;
+    }
+
+    /* 2. MAKE INPUT & BUTTON BIGGER */
+    input, button {
+        font-size: 1.5rem;       /* Increases text size inside */
+        padding: 15px 30px;      /* Increases the physical box size */
+        margin: 10px;            /* Adds space between them */
+        border-radius: 10px;     /* Optional: Makes corners round */
+    }
+
+    /* 3. MAKE IMAGE BIGGER */
+    #pokemonSprite {
+        display: block;          /* Makes image behave like a block so we can center it nicely */
+        margin: 30px auto;       /* 30px top/bottom space, 'auto' ensures centering */
+        width: 300px;            /* Forces the image to be 300px wide */
+        height: 300px;           /* Forces height to match */
+    }
+</style>
+
+    <img src="" alt="Pokemon Sprite" id="pokemonSprite" style="display: none;">
+    </div>
+
+    
+    <script src="main.js"></script>
+</body>
+</html>
