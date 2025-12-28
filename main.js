@@ -64,10 +64,8 @@ async function fetchPokemonData() {
         spinner.style.display = "block";
         if (!response.ok) {
         throw new Error("Pokemon not found! Please check the name and try again.");
-    } catch(error){
-    spinner.style.display = "none";
-    console.error("Error fetching Pokemon data:", error);
-       
+        alert("Pokemon not found! Please check the name and try again.");
+            
     }
         
 
@@ -127,6 +125,7 @@ function closePokedex() {
     // document.getElementById('pokemon').value = "";
     // document.getElementById('pokemonSprite').style.display = "none";
 }
+
 
 
 
