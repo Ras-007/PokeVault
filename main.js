@@ -100,11 +100,13 @@ data.types.forEach(typeInfo => {
     typesElement.innerHTML += typeHTML;
 });
 }
-
     catch(error){
         spinner.style.display = "none";
         console.error("Error fetching Pokemon data:", error);
-        alert("Pokemon not found! Check your spelling.");
+        const imgElement = document.getElementById("pokemonSprite");
+        imgElement.style.display = "none";
+        const statsElement = document.getElementById("pokemonStats");
+        statsElement.innerHTML = `<p style="color: red;">${error.message}</p>`;
     }
         
 }
@@ -124,6 +126,7 @@ function closePokedex() {
     // document.getElementById('pokemon').value = "";
     // document.getElementById('pokemonSprite').style.display = "none";
 }
+
 
 
 
