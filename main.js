@@ -50,7 +50,10 @@ topSeasons.forEach((season, index) => {
 
 async function fetchPokemonData() {
 
-    
+    if (!name) {
+        alert("Please enter a Pokemon name!"); // <--- Your message here
+        return; // 🛑 STOP! Do not run the rest of the code.
+    }
     try{
         const pokemon = document.getElementById("pokemon").value.toLowerCase();
         const response = await fetch(`https://pokeapi.co/api/v2/pokemon/${pokemon}`);
@@ -59,10 +62,7 @@ async function fetchPokemonData() {
         if (!response.ok) {
         throw new Error("Pokemon not found! Please check the name and try again.");
     }
-        if (!name) {
-        alert("Please enter a Pokemon name!"); // <--- Your message here
-        return; // 🛑 STOP! Do not run the rest of the code.
-    }
+        
 
     
 
@@ -121,6 +121,7 @@ function closePokedex() {
     // document.getElementById('pokemon').value = "";
     // document.getElementById('pokemonSprite').style.display = "none";
 }
+
 
 
 
