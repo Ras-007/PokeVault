@@ -49,6 +49,8 @@ topSeasons.forEach((season, index) => {
 
 
 async function fetchPokemonData() {
+
+    
     try{
         const pokemon = document.getElementById("pokemon").value.toLowerCase();
         const response = await fetch(`https://pokeapi.co/api/v2/pokemon/${pokemon}`);
@@ -56,6 +58,10 @@ async function fetchPokemonData() {
         spinner.style.display = "block";
         if (!response.ok) {
         throw new Error("Pokemon not found! Please check the name and try again.");
+    }
+        if (!name) {
+        alert("Please enter a Pokemon name!"); // <--- Your message here
+        return; // 🛑 STOP! Do not run the rest of the code.
     }
 
     
@@ -95,6 +101,7 @@ data.types.forEach(typeInfo => {
     catch(error){
         spinner.style.display = "none";
         console.error("Error fetching Pokemon data:", error);
+        alert("Pokemon not found! Check your spelling.");
     }
         
 }
@@ -114,5 +121,6 @@ function closePokedex() {
     // document.getElementById('pokemon').value = "";
     // document.getElementById('pokemonSprite').style.display = "none";
 }
+
 
 
