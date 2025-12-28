@@ -5,31 +5,28 @@ const topSeasons = [
         title: "Indigo League", 
         ep: "Season 1", 
         img: "images/season1.jpeg", 
-        desc: "The classic start! Ash Ketchum leaves Pallet Town, meets Pikachu for the first time, and challenges the Kanto Gym Leaders to become a Pokemon Master." 
+         
     },
     { 
         title: "XYZ", 
         ep: "Season 19", 
         img: "images/xyz.jpeg", 
-        desc: "Considered one of the best seasons ever. Ash travels Kalos, unlocks the mysterious 'Bond Phenomenon' with Greninja, and fights to save the world from Team Flare." 
+         
     },
     { 
         title: "Galactic Battles", 
         ep: "Season 12", 
         img: "images/galactic battles.jpeg", 
-        desc: "Deep in the Sinnoh region, Ash and Dawn face off against the dangerous Team Galactic, who are trying to remake the universe using legendary Pokemon." 
     },
     { 
         title: "Sun & Moon", 
         ep: "Season 20", 
         img: "images/sun-moon.jpeg", 
-        desc: "A total change of pace! Ash goes to school in the tropical Alola region, learns Z-Moves, and eventually competes in the very first Alola Pokemon League." 
     },
     { 
         title: "Journeys", 
         ep: "Season 23", 
         img: "images/journeys.jpeg", 
-        desc: "Ash travels across every single region (not just one!) with his new friend Goh, catching old favorites and battling towards the World Coronation Series." 
     }
 ];
 
@@ -117,4 +114,5 @@ function closePokedex() {
     // document.getElementById('pokemon').value = "";
     // document.getElementById('pokemonSprite').style.display = "none";
 }
+
 
