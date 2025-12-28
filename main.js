@@ -64,6 +64,10 @@ async function fetchPokemonData() {
         spinner.style.display = "block";
         if (!response.ok) {
         throw new Error("Pokemon not found! Please check the name and try again.");
+    } catch(error){
+    spinner.style.display = "none";
+    console.error("Error fetching Pokemon data:", error);
+       
     }
         
 
@@ -99,12 +103,12 @@ data.types.forEach(typeInfo => {
     // Add it to the container
     typesElement.innerHTML += typeHTML;
 });
-}
-catch(error){
+    }catch(error){
     spinner.style.display = "none";
     console.error("Error fetching Pokemon data:", error);
        
-    }
+    } alert(error.message);
+
         
 }
 
@@ -123,6 +127,7 @@ function closePokedex() {
     // document.getElementById('pokemon').value = "";
     // document.getElementById('pokemonSprite').style.display = "none";
 }
+
 
 
 
